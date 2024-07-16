@@ -7,6 +7,16 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Student Management System</h1>
+        <div class="mt-3">
+            <button class="btn btn-primary" onclick="fetchData('students')">Students</button>
+            <button class="btn btn-primary" onclick="fetchData('units')">Units</button>
+            <button class="btn btn-primary" onclick="fetchData('coursereg')">Course Registrations</button>
+            <button class="btn btn-primary" onclick="fetchData('lecturers')">Lecturers</button>
+            <button class="btn btn-primary" onclick="fetchData('lecturehall')">Lecture Halls</button>
+            <button class="btn btn-primary" onclick="fetchData('faculty')">Faculties</button>
+            <button class="btn btn-primary" onclick="fetchData('accommodations')">Accommodations</button>
+            <button class="btn btn-primary" onclick="fetchData('studenttype')">Student Types</button>
+        </div>
         <div id="dataTable" class="mt-3">
             <!-- Data table will be populated here -->
         </div>
@@ -18,21 +28,25 @@
             const data = await response.json();
             let tableHTML = `<h2>${table.charAt(0).toUpperCase() + table.slice(1)} Table</h2>`;
             tableHTML += '<table class="table"><thead><tr>';
-            Object.keys(data[0]).forEach(key => {
-                tableHTML += `<th>${key}</th>`;
-            });
-            tableHTML += '<th>Actions</th></tr></thead><tbody>';
-            data.forEach(record => {
-                tableHTML += '<tr>';
-                Object.values(record).forEach(value => {
-                    tableHTML += `<td>${value}</td>`;
+            if (data.length > 0) {
+                Object.keys(data[0]).forEach(key => {
+                    tableHTML += `<th>${key}</th>`;
                 });
-                tableHTML += `<td>
-                    <button class="btn btn-sm btn-warning" onclick="editRecord('${table}', ${record[table + 'ID']})">Edit</button>
-                    <button class="btn btn-sm btn-danger" onclick="deleteRecord('${table}', ${record[table + 'ID']})">Delete</button>
-                </td>`;
-                tableHTML += '</tr>';
-            });
+                tableHTML += '<th>Actions</th></tr></thead><tbody>';
+                data.forEach(record => {
+                    tableHTML += '<tr>';
+                    Object.values(record).forEach(value => {
+                        tableHTML += `<td>${value}</td>`;
+                    });
+                    tableHTML += `<td>
+                        <button class="btn btn-sm btn-warning" onclick="editRecord('${table}', ${record[table + 'ID']})">Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteRecord('${table}', ${record[table + 'ID']})">Delete</button>
+                    </td>`;
+                    tableHTML += '</tr>';
+                });
+            } else {
+                tableHTML += '<tr><td colspan="100%">No records found</td></tr>';
+            }
             tableHTML += '</tbody></table>';
             document.getElementById('dataTable').innerHTML = tableHTML;
         }
@@ -47,8 +61,6 @@
         async function editRecord(table, id) {
             // Implement edit record functionality here
         }
-
-        fetchData('students'); // Default table to display on page load
     </script>
 </body>
 </html>
