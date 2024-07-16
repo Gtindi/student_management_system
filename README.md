@@ -4,7 +4,16 @@ Based on the tables, I constructed an Entity-Relationship Diagram (ERD) in order
 ![ERD](ReadmeImages/sms_ERD.png)
 
 <a href="https://app.diagrams.net/#G1UNT1M15g1PocLwE5bQYinulUBKU3xkf_#%7B%22pageId%22%3A%22InMkDCBhClccY3GWE_AD%22%7D">Here's the link to the ERD</a>
-<hr>
+
+The requirements listed below were utilized to develop the system:
+<ol>
+<li> Backend: </li>
+<ul>
+<li> Python & Flask </li>
+<li> MySQL </li>
+</ul>
+<li> Frontend: HTML/Javascript </li>
+</ol>
 
 ## Database of the system
 ![ERD](ReadmeImages/db.png)
@@ -58,21 +67,6 @@ CREATE TABLE Unit_table (
 );
 
 ```
-
-<hr>
-
-
-The requirements listed below were utilized to develop the system:
-<ol>
-<li> Backend: </li>
-<ul>
-<li> Python & Flask </li>
-<li> MySQL </li>
-</ul>
-<li> Frontend: HTML/Javascript </li>
-</ol>
-<hr>
-
 ## 1. Student Table
 
 ![ERD](ReadmeImages/sms0.png)
