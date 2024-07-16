@@ -58,7 +58,9 @@ CREATE TABLE Unit_table (
 );
 
 ```
-## The Frontend
+
+<hr>
+
 
 The requirements listed below were utilized to develop the system:
 <ol>
@@ -69,6 +71,7 @@ The requirements listed below were utilized to develop the system:
 </ul>
 <li> Frontend: HTML/Javascript </li>
 </ol>
+<hr>
 
 ## 1. Student Table
 
